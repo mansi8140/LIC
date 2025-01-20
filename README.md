@@ -1,21 +1,59 @@
-# Life Insurance Management System
+# LicWebApp
 
-Currently leading the development of a full-stack web application for policy management with key features:
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
 
-**Frontend**: Angular-based responsive design for a seamless user experience.
+## Development server
 
-**Backend**: Spring Boot with RESTful APIs for secure communication and business logic.
+To start a local development server, run:
 
-**Security**: Planning JWT-based authentication with role-specific dashboards for users, agents, and admins.
+```bash
+ng serve
+```
 
-**Database**: Fully implemented MySQL schema for efficient and scalable data management.
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-**Highlights**:
-Comprehensive MySQL schema to manage all application data, including users, policies, payments, and support.
-REST APIs for managing users, policies, claims, payments, commissions, and notifications.
-Scalable architecture optimized for operational efficiency.
-Integration with modern payment gateways and notification systems.
+## Code scaffolding
 
-**Database Schema:**
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-![LIC_Database_Schema](https://github.com/user-attachments/assets/baaae7fc-f6fb-4890-8804-8cf3c332b304)
+```bash
+ng generate component component-name
+```
+
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

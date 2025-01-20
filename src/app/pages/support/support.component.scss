@@ -1,0 +1,44 @@
+.support {
+  padding: 20px;
+  text-align: center;
+
+  h1 {
+    color: #3f51b5;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .faq-section,
+  .contact-section {
+    margin-bottom: 30px;
+
+    h2 {
+      color: #3f51b5;
+      margin-bottom: 15px;
+    }
+
+    .faq {
+      margin-bottom: 10px;
+      text-align: left;
+
+      h3 {
+        color: #3f51b5;
+        margin: 5px 0;
+      }
+
+      p {
+        font-size: 1em;
+        color: #666;
+      }
+    }
+  }
+
+  .contact-section p {
+    margin: 5px 0;
+  }
+}
