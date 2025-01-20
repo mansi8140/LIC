@@ -22,7 +22,7 @@ public class Commissions {
 
     @ManyToOne
     @JoinColumn(name = "policy_id", nullable = false)
-    private Policies policy; // Reference to Policies entity
+    private Policy policy; // Reference to Policies entity
 
     @Column(nullable = false, precision = 5, scale = 2)
     private BigDecimal commissionPercentage; // Percentage of commission
@@ -70,11 +70,11 @@ public class Commissions {
         this.user = user;
     }
 
-    public Policies getPolicy() {
-        return policy;
+    public Policy getPolicy() {
+       return policy;
     }
 
-    public void setPolicy(Policies policy) {
+    public void setPolicy(Policy policy) {
         this.policy = policy;
     }
 
@@ -117,4 +117,6 @@ public class Commissions {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+
 }
