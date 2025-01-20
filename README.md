@@ -13,6 +13,6 @@ REST APIs for managing users, policies, claims, payments, commissions, and notif
 Scalable architecture optimized for operational efficiency.
 Integration with modern payment gateways and notification systems.
 
-**Database Schema:
-**
+**Database Schema:**
+
 ![LIC_Database_Schema](https://github.com/user-attachments/assets/baaae7fc-f6fb-4890-8804-8cf3c332b304)
