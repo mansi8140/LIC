@@ -3,8 +3,11 @@
 Currently leading the development of a full-stack web application for policy management with key features:
 
 **Frontend**: Angular-based responsive design for a seamless user experience.
+
 **Backend**: Spring Boot with RESTful APIs for secure communication and business logic.
+
 **Security**: Planning JWT-based authentication with role-specific dashboards for users, agents, and admins.
+
 **Database**: Fully implemented MySQL schema for efficient and scalable data management.
 
 **Highlights**:
