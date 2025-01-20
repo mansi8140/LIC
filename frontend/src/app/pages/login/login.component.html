@@ -1,0 +1,22 @@
+<div class="login-container">
+  <h2 class="login-title">Login</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="role">Login as</label>
+      <select
+        id="role"
+        [(ngModel)]="loginData.role"
+        name="role"
+        class="form-control"
+        required
+      >
+        <option value="" disabled>Select Role</option>
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+        <option value="agent">Agent</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn-primary">Login</button>
+  </form>
+</div>

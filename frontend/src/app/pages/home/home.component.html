@@ -1,18 +1,14 @@
 <div class="home">
   <h1>Welcome to LIC Web App</h1>
-  <p>Manage your policies, make payments, and get support all in one place.</p>
+  <p>
+    Manage your tasks efficiently based on your role: {{ role | titlecase }}
+  </p>
+
   <div class="features">
-    <a routerLink="/policies" class="feature-card">
-      <h2>View Policies</h2>
-      <p>Access all your policy details in one place.</p>
-    </a>
-    <a routerLink="/payments" class="feature-card">
-      <h2>Make Payments</h2>
-      <p>Pay your premiums securely and on time.</p>
-    </a>
-    <a routerLink="/support" class="feature-card">
-      <h2>Get Support</h2>
-      <p>Contact us or find answers to your questions.</p>
-    </a>
+    <div *ngFor="let card of cards" class="feature-card">
+      <h2>{{ card.title }}</h2>
+      <p>{{ card.description }}</p>
+      <a [routerLink]="card.link" class="btn-primary">Go</a>
+    </div>
   </div>
 </div>

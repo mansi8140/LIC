@@ -1,5 +1,9 @@
 <div id="root">
-  <app-header></app-header>
+  <div *ngIf="showHeaderAndFooter">
+    <app-header></app-header>
+  </div>
+
   <router-outlet></router-outlet>
-  <app-footer></app-footer>
+
+  <app-footer *ngIf="showHeaderAndFooter" class="app-footer"></app-footer>
 </div>

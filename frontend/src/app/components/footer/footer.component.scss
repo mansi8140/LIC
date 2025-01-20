@@ -2,6 +2,9 @@
   background-color: #3f51b5; // LIC theme color
   color: white;
   padding: 20px 0;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
 
   .footer-content {
     display: flex;

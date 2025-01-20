@@ -1,0 +1,29 @@
+<h1>Client Policies</h1>
+<div class="filter">
+  <label for="filter">Filter by Status:</label>
+  <select id="filter" [(ngModel)]="filter">
+    <option value="all">All</option>
+    <option value="active">Active</option>
+    <option value="pending">Pending</option>
+    <option value="expired">Expired</option>
+  </select>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Policy Name</th>
+      <th>Status</th>
+      <th>Premium</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let policy of getFilteredPolicies()">
+      <td>{{ policy.client }}</td>
+      <td>{{ policy.policyName }}</td>
+      <td>{{ policy.status }}</td>
+      <td>{{ policy.premium }}</td>
+    </tr>
+  </tbody>
+</table>

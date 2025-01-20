@@ -1,0 +1,19 @@
+<h1>Commission Summary</h1>
+<p>Total Commission: {{ totalCommission }}</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Policy Name</th>
+      <th>Commission</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let detail of commissionDetails">
+      <td>{{ detail.policyName }}</td>
+      <td>{{ detail.commission }}</td>
+      <td>{{ detail.date }}</td>
+    </tr>
+  </tbody>
+</table>
