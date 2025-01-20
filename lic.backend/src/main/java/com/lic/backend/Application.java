@@ -19,29 +19,29 @@ public class Application {
 	}
 
 	// Seed default user
-	@Bean
-	CommandLineRunner run(UserRepository userRepository, PasswordEncoder passwordEncoder) {
-		return args -> {
-			if (userRepository.findByUsername("admin").isEmpty()) {
-				User admin = new User();
-				admin.setUsername("admin");
-				admin.setPassword(passwordEncoder.encode("admin123"));
-				admin.setRoles(Set.of("ROLE_ADMIN"));
-				userRepository.save(admin);
-			}
-
-			if (userRepository.findByUsername("user").isEmpty()) {
-				User user = new User();
-				user.setUsername("user");
-				user.setPassword(passwordEncoder.encode("user123"));
-				user.setRoles(Set.of("ROLE_USER"));
-				userRepository.save(user);
-			}
-		};
-	}
-
-
-	// Password encoder bean
+//	@Bean
+//	CommandLineRunner run(UserRepository, PasswordEncoder passwordEncoder) {
+//		return args -> {
+//			if (userRepository.findByUsername("admin").isEmpty()) {
+//				User admin = new User();
+//				admin.setName("admin");
+//				admin.setPassword(passwordEncoder.encode("admin123"));
+//				admin.setRole(Set.of("ROLE_ADMIN").toString());
+//				userRepository.save(admin);
+//			}
+//
+//			if (userRepository.findByUsername("user").isEmpty()) {
+//				User user = new User();
+//				user.setName("user");
+//				user.setPassword(passwordEncoder.encode("user123"));
+//				user.setRole(Set.of("ROLE_USER").toString());
+//				userRepository.save(user);
+//			}
+//		};
+//	}
+//
+//
+//	// Password encoder bean
 	@Bean(name = "appPasswordEncoder")
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();

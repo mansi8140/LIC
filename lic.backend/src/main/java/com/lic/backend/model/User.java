@@ -1,40 +1,80 @@
 package com.lic.backend.model;
 
+import com.lic.backend.model.Payments;
 import jakarta.persistence.*;
-import java.util.Set;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
-@Table(name = "app_user")
+@Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long userId; // Primary Key
 
-    private String username;
+    @Column(nullable = false, length = 100)
+    private String name; // Full name of the user
 
-    private String password;
+    @Column(nullable = false, unique = true, length = 100)
+    private String email; // Unique email address
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
-    @Column(name = "role")
-    private Set<String> roles;
+    @Column(nullable = false, unique = true, length = 15)
+    private String phone; // Unique phone number
 
-    // Getters and setters
-    public Long getId() {
-        return id;
+    @Column(nullable = false)
+    private String password; // Hashed password for authentication
+
+    @Column(nullable = false, length = 20)
+    private String role; // Role of the user (e.g., USER, AGENT, ADMIN)
+
+    @Column(nullable = false)
+    private Boolean isActive = true; // Whether the user account is active
+
+    @Column(length = 255)
+    private String address; // User's address
+
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt = LocalDateTime.now(); // Account creation timestamp
+
+    @Column(nullable = false)
+    private LocalDateTime updatedAt = LocalDateTime.now(); // Last account update timestamp
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Payments> payments; // List of payments made by the user
+
+    // Getters and Setters
+
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getPassword() {
@@ -45,11 +85,56 @@ public class User {
         this.password = password;
     }
 
-    public Set<String> getRoles() {
-        return roles;
+    public String getRole() {
+        return role;
     }
 
-    public void setRoles(Set<String> roles) {
-        this.roles = roles;
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public List<Payments> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(List<Payments> payments) {
+        this.payments = payments;
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        this.updatedAt = LocalDateTime.now();
     }
 }
