@@ -12,3 +12,4 @@ Comprehensive MySQL schema to manage all application data, including users, poli
 REST APIs for managing users, policies, claims, payments, commissions, and notifications.
 Scalable architecture optimized for operational efficiency.
 Integration with modern payment gateways and notification systems.
+![LIC_Database_Schema](https://github.com/user-attachments/assets/baaae7fc-f6fb-4890-8804-8cf3c332b304)
