@@ -1,6 +1,5 @@
 package com.lic.backend.model;
 
-import com.lic.backend.model.Payments;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -40,8 +39,8 @@ public class User {
     @Column(nullable = false)
     private LocalDateTime updatedAt = LocalDateTime.now(); // Last account update timestamp
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Payments> payments; // List of payments made by the user
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Payments> payments; // List of payments made by the user
 
     // Getters and Setters
 
@@ -125,13 +124,13 @@ public class User {
         this.updatedAt = updatedAt;
     }
 
-    public List<Payments> getPayments() {
-        return payments;
-    }
+//    public List<Payments> getPayments() {
+//        return payments;
+//    }
 
-    public void setPayments(List<Payments> payments) {
-        this.payments = payments;
-    }
+//    public void setPayments(List<Payments> payments) {
+//        this.payments = payments;
+//    }
 
     @PreUpdate
     public void preUpdate() {
