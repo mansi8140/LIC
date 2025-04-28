@@ -1,0 +1,17 @@
+html,
+body {
+  height: 100%; /* Ensure the height of the page spans the viewport */
+  margin: 0;
+}
+
+router-outlet {
+  flex: 1; /* Push the footer to the bottom */
+}
+.app-footer {
+  margin-bottom: 0;
+}
+#root {
+  display: flex;
+  flex-direction: column; /* Stack header, content, and footer vertically */
+  min-height: 100vh; /* Full viewport height */
+}

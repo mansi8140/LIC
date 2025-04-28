@@ -1,0 +1,20 @@
+<h1>Audit Logs</h1>
+<div class="search-bar">
+  <input type="text" [(ngModel)]="searchQuery" placeholder="Search logs..." />
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Action</th>
+      <th>User</th>
+      <th>Timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let log of getFilteredLogs()">
+      <td>{{ log.action }}</td>
+      <td>{{ log.user }}</td>
+      <td>{{ log.timestamp }}</td>
+    </tr>
+  </tbody>
+</table>

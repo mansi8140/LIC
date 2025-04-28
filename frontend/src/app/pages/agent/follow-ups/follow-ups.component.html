@@ -1,0 +1,18 @@
+<h1>Follow-Up Reminders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Task</th>
+      <th>Due Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let followUp of followUps">
+      <td>{{ followUp.client }}</td>
+      <td>{{ followUp.task }}</td>
+      <td>{{ followUp.dueDate }}</td>
+    </tr>
+  </tbody>
+</table>

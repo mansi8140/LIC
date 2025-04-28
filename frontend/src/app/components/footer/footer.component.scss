@@ -1,0 +1,55 @@
+.footer {
+  background-color: #3f51b5; // LIC theme color
+  color: white;
+  padding: 20px 0;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+
+    .footer-section {
+      flex: 1;
+
+      h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin: 5px 0;
+        font-size: 0.9em;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin: 5px 0;
+
+          a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s;
+
+            &:hover {
+              color: #ffcc00;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8em;
+    border-top: 1px solid #ffffff50;
+    padding-top: 10px;
+  }
+}

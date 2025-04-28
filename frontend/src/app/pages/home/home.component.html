@@ -1,0 +1,14 @@
+<div class="home">
+  <h1>Welcome to LIC Web App</h1>
+  <p>
+    Manage your tasks efficiently based on your role: {{ role | titlecase }}
+  </p>
+
+  <div class="features">
+    <div *ngFor="let card of cards" class="feature-card">
+      <h2>{{ card.title }}</h2>
+      <p>{{ card.description }}</p>
+      <a [routerLink]="card.link" class="btn-primary">Go</a>
+    </div>
+  </div>
+</div>
