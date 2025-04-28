@@ -1,15 +1,10 @@
 package com.lic.backend.model;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
-@Table(name = "policies")
-
-
-
-
 @Entity
+@Table(name = "policies")
 public class Policy {
 
     @Id
@@ -18,6 +13,8 @@ public class Policy {
 
     private String policyType;
     private double premiumAmount;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
@@ -27,26 +24,8 @@ public class Policy {
     @JoinColumn(name = "agent_id")
     private User agent;
 
-    private LocalDate startDate;
-    private LocalDate endDate;
+    @OneToOne(mappedBy = "policy", cascade = CascadeType.ALL)
+    private Commissions commission;
 
-    public void setCustomer(User customer) {
-    }
-
-    public void setAgent(User agent) {
-    }
-
-    public void setPolicyType(Object policyType) {
-    }
-
-    public void setPremiumAmount(Object premiumAmount) {
-    }
-
-    public void setStartDate(Object startDate) {
-    }
-
-    public void setEndDate(Object endDate) {
-    }
-
-    // Getters, Setters, Constructors
+    // Getters and Setters
 }

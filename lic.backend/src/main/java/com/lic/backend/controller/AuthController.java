@@ -1,41 +1,27 @@
 package com.lic.backend.controller;
 
-import com.lic.backend.util.JwtUtil;
+import com.lic.backend.model.User;
+import com.lic.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.AuthenticationException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    private final AuthenticationManager authenticationManager;
-    private final JwtUtil jwtUtil;
-
     @Autowired
-    public AuthController(AuthenticationManager authenticationManager, JwtUtil jwtUtil) {
-        this.authenticationManager = authenticationManager;
-        this.jwtUtil = jwtUtil;
-    }
+    private UserRepository userRepository;
 
-    @PostMapping("/authenticate")
-    public Map<String, String> authenticate(@RequestBody Map<String, String> request) {
-        String username = request.get("username");
-        String password = request.get("password");
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestParam String username, @RequestParam String password) {
+        User user = userRepository.findByUsername(username);
 
-        try {
-            authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(username, password)
-            );
-        } catch (AuthenticationException e) {
-            throw new RuntimeException("Invalid credentials for username: " + username, e);
+        if (user == null || !user.getPassword().equals(password)) {
+            return ResponseEntity.status(401).body("Invalid Credentials");
         }
 
-        String token = jwtUtil.generateToken(username);
-        return Map.of("token", token);
+        // For now, instead of real JWT, just return a dummy token
+        return ResponseEntity.ok("dummy-jwt-token-for-" + username);
     }
 }

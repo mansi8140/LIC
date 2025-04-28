@@ -1,5 +1,6 @@
 package com.lic.backend.service;
 import com.lic.backend.DTO.PolicyRequestDTO;
+import com.lic.backend.DTO.PolicyResponseDTO;
 import com.lic.backend.model.Policy;
 import com.lic.backend.model.User;
 import com.lic.backend.repository.PolicyRepository;
@@ -16,11 +17,13 @@ public class PolicyService {
     @Autowired
     private UserRepository userRepository;
 
-    public Policy createPolicy(PolicyRequestDTO dto) {
+
+    public PolicyResponseDTO createPolicy(PolicyRequestDTO dto) {
         User customer = userRepository.findById(dto.getCustomerId())
                 .orElseThrow(() -> new RuntimeException("Customer not found"));
-        User agent = userRepository.findById(dto.getAgentId())
-                .orElseThrow(() -> new RuntimeException("Agent not found"));
+
+        // Assume the logged-in user is the agent
+        User agent = getLoggedInUser(); // Fetch from SecurityContextHolder
 
         Policy policy = new Policy();
         policy.setCustomer(customer);
@@ -30,8 +33,30 @@ public class PolicyService {
         policy.setStartDate(dto.getStartDate());
         policy.setEndDate(dto.getEndDate());
 
-        return policyRepository.save(policy);
+        Policy savedPolicy = policyRepository.save(policy);
+
+        // Convert to Response DTO
+        PolicyResponseDTO responseDTO = new PolicyResponseDTO();
+        responseDTO.setPolicyId(savedPolicy.getId());
+        responseDTO.setPolicyType(savedPolicy.getPolicyType());
+        responseDTO.setPremiumAmount(savedPolicy.getPremiumAmount());
+        responseDTO.setStartDate(savedPolicy.getStartDate());
+        responseDTO.setEndDate(savedPolicy.getEndDate());
+        responseDTO.setAgentName(agent.getFullName());
+        responseDTO.setCustomerName(customer.getFullName());
+
+        return responseDTO;
     }
+    public Policy getPolicy(PolicyRequestDTO dto) {
+        User customer = userRepository.findById(dto.getCustomerId())
+                .orElseThrow(() -> new RuntimeException("Customer not found"));
+        Long user_id = dto.getCustomerId();
+
+        Policy savedPolicy = policyRepository.getReferenceById(user_id);
+
+        return savedPolicy;
+    }
+
 }
 
 
