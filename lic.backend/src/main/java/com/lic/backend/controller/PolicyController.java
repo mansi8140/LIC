@@ -65,11 +65,12 @@ public class PolicyController {
         return new ResponseEntity<>(createdPolicy, HttpStatus.CREATED);
     }
 
-    @GetMapping("/my")
-    public ResponseEntity<List<PolicyResponseDTO>> getMyPolicies() {
-        List<PolicyResponseDTO> policies = policyService.getPoliciesForLoggedInCustomer();
+    @GetMapping("/{user_id}")
+    public ResponseEntity<List<PolicyResponseDTO>> getUserPolicy(@PathVariable("user_id") Long id) {
+        List<PolicyResponseDTO> policies = policyService.getPoliciesForCustomer(id);
         return ResponseEntity.ok(policies);
     }
+
 }
 
 

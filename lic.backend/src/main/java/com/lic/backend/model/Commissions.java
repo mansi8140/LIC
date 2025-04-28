@@ -20,14 +20,36 @@ public class Commissions {
     @JoinColumn(name = "agent_id")
     private User agent;
 
-    public void setPolicy(Policy savedPolicy) {
+
+    // Getters and Setters
+
+    public Long getId() {
+        return id;
+    }
+
+    public double getCommissionAmount() {
+        return commissionAmount;
+    }
+
+    public Policy getPolicy() {
+        return policy;
+    }
+
+    public User getAgent() {
+        return agent;
+    }
+
+
+    public void setCommissionAmount(double commissionAmount) {
+        this.commissionAmount = commissionAmount;
+    }
+
+    public void setPolicy(Policy policy) {
+        this.policy = policy;
     }
 
     public void setAgent(User agent) {
+        this.agent = agent;
     }
 
-    public void setCommissionAmount(double commissionAmount) {
-    }
-
-    // Getters and Setters
 }

@@ -15,10 +15,10 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/admin/**").hasRole("ADMIN") // Only admins can access
-                        .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN") // Users and admins can access
+//                        .requestMatchers("/api/admin/**").hasRole("ADMIN") // Only admins can access
+//                        .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN") // Users and admins can access
                         .requestMatchers("/api/auth/**").permitAll() // Public access
-                        .anyRequest().authenticated())
+                        .anyRequest().permitAll())
                 .formLogin(form -> form.disable())
                 .httpBasic(httpBasic -> httpBasic.disable());
         return http.build();

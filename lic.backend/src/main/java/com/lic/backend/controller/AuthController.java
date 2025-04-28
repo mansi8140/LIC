@@ -24,4 +24,22 @@ public class AuthController {
         // For now, instead of real JWT, just return a dummy token
         return ResponseEntity.ok("dummy-jwt-token-for-" + username);
     }
+
+
+    @PostMapping("/register")
+    public ResponseEntity<String> register(@RequestBody User user) {
+        if (userRepository.findByUsername(user.getUsername()) != null) {
+            return ResponseEntity.badRequest().body("Username already exists!");
+        }
+
+        // Set default role if not already set (optional)
+        if (user.getRole() == null || user.getRole().isEmpty()) {
+            user.setRole("ROLE_CUSTOMER"); // Default role
+        }
+
+        userRepository.save(user);
+
+        return ResponseEntity.ok("User registered successfully!");
+    }
+
 }

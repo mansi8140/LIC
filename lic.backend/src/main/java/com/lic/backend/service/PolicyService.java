@@ -69,9 +69,8 @@ public class PolicyService {
         return responseDTO;
     }
 
-    public List<PolicyResponseDTO> getPoliciesForLoggedInCustomer() {
-        Long customerId = 2L; // Dummy customerId (later dynamically)
-        List<Policy> policies = policyRepository.findByCustomerId(customerId);
+    public List<PolicyResponseDTO> getPoliciesForCustomer(Long id) {
+        List<Policy> policies = policyRepository.findByCustomerId(id);
 
         return policies.stream().map(policy -> {
             PolicyResponseDTO dto = new PolicyResponseDTO();
