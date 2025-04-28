@@ -9,5 +9,3 @@ public class CommissionResponseDTO {
 
         // Getters and Setters
     }
-
-}

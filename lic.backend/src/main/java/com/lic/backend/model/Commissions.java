@@ -20,5 +20,14 @@ public class Commissions {
     @JoinColumn(name = "agent_id")
     private User agent;
 
+    public void setPolicy(Policy savedPolicy) {
+    }
+
+    public void setAgent(User agent) {
+    }
+
+    public void setCommissionAmount(double commissionAmount) {
+    }
+
     // Getters and Setters
 }

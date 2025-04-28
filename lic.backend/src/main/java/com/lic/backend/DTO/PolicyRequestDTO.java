@@ -3,34 +3,52 @@ package com.lic.backend.DTO;
 import java.time.LocalDate;
 
 public class PolicyRequestDTO {
+
     private Long customerId;
-    private Long agentId;
     private String policyType;
     private double premiumAmount;
     private LocalDate startDate;
     private LocalDate endDate;
 
-    public Object getPolicyType() {
-        return this.policyType;
-    }
-
-    public Object getPremiumAmount() {
-        return this.premiumAmount;
-    }
-
-    public Object getStartDate() {
-        return this.startDate;
-    }
-
-    public Object getEndDate() {
-        return this.endDate;
-    }
-
-    public Long getAgentId() {
-        return this.agentId;
-    }
-
+    // Getters
     public Long getCustomerId() {
-        return this.customerId;
+        return customerId;
+    }
+
+    public String getPolicyType() {
+        return policyType;
+    }
+
+    public double getPremiumAmount() {
+        return premiumAmount;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    // Setters
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
+    }
+
+    public void setPolicyType(String policyType) {
+        this.policyType = policyType;
+    }
+
+    public void setPremiumAmount(double premiumAmount) {
+        this.premiumAmount = premiumAmount;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
     }
 }

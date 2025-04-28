@@ -26,5 +26,8 @@ public class User {
     @OneToMany(mappedBy = "agent")
     private List<Commissions> commissionsEarned;
 
+    public Object getFullName() {
+    }
+
     // Getters and Setters
 }
