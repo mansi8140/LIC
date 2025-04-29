@@ -1,22 +1,68 @@
 
 # Life Insurance Management System
 
-Currently leading the development of a full-stack web application for policy management with key features:
+## 📝 Project Overview
 
-**Frontend**: Angular-based responsive design for a seamless user experience.
+This project is a comprehensive backend system for managing life insurance policies. It facilitates:
 
-**Backend**: Spring Boot with RESTful APIs for secure communication and business logic.
+- **Agent Operations**: Agents can create and manage policies for customers.
+- **Customer Access**: Customers can view their policies and related details.
+- **Commission Tracking**: Automatic calculation and tracking of agent commissions.
 
-**Security**: Planning JWT-based authentication with role-specific dashboards for users, agents, and admins.
+## 🛠️ Tech Stack
 
-**Database**: Fully implemented MySQL schema for efficient and scalable data management.
+- **Backend**: Spring Boot
+- **Frontend**: Angular
+- **Database**: Aiven Cloud MySQL
+- **API Testing**: Postman
 
-**Highlights**:
-Comprehensive MySQL schema to manage all application data, including users, policies, payments, and support.
-REST APIs for managing users, policies, claims, payments, commissions, and notifications.
-Scalable architecture optimized for operational efficiency.
-Integration with modern payment gateways and notification systems.
+- ## 🔐 Security
 
-**Database Schema:**
+- **Authentication**: Currently, authentication is disabled for testing purposes. Planning to implement JWT-based authentication.
+- **Role-Based Access**: Designed to support different roles such as Agent, Customer, and Admin.
 
-![LIC_Database_Schema](https://github.com/user-attachments/assets/baaae7fc-f6fb-4890-8804-8cf3c332b304)
+## 🚀 Features
+
+- **User Registration**: Agents and customers can register.
+- **Login**: Users can log in to access their dashboards.
+- **Policy Management**: Agents can create policies for customers.
+- **Policy Viewing**: Customers can view their policies.
+- **Commission Calculation**: Automatic calculation of agent commissions upon policy creation.
+
+## 📊 Database Schema
+
+_Cloud Database Hosted on Aiven MySQL_
+
+## 📬 API Endpoints
+
+### Authentication
+
+- `POST /api/auth/register`: Register a new user.
+- `POST /api/auth/login`: Log in a user.
+
+### Users
+
+- `GET /api/users/customers`: Retrieve all customers.
+- `GET /api/users/{id}`: Retrieve user details by ID.
+
+### Policies
+
+- `POST /api/policies`: Create a new policy.
+- `GET /api/policies/{customer_id}`: Retrieve policies for a specific customer.
+
+### Commissions
+
+- `GET /api/commissions/my`: Retrieve commissions for the logged-in agent.
+
+## 📝 Future Improvements
+
+- Implement JWT-based authentication.
+- Add validation annotations (`@NotNull`, `@Size`, etc.) on DTOs for request validation.
+- Enhance error handling with a global exception handler.
+- - Create Admin APIs for:
+  - Managing agents and customers
+  - Viewing all policies and commissions globally
+- Add Email Notifications on policy creation and premium due dates.
+- Implement Policy Renewal and Premium Payment APIs.
+- Introduce Dashboard Metrics APIs (total policies, total commissions, active customers, etc.)
+
